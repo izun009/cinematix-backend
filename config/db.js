@@ -7,7 +7,7 @@ function handleDisconnect() {
     user: 'b470cb6f14c593',
     password: '7ec199a9',
     database: 'heroku_041310c7bcb4df6'
-});
+  });
   
     connection.connect(function(err) {             
       if(err) {                                     
@@ -17,7 +17,7 @@ function handleDisconnect() {
     });                                    
     connection.on('error', function(err) {
       console.log('db error', err);
-      if(err.code === 'PROTOCOL_CONNECTION_LOST') { 
+      if(err.code !== 'PROTOCOL_CONNECTION_LOST') { 
         handleDisconnect();                         
       } else {                                      
         throw err;                                  
