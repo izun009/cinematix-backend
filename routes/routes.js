@@ -25,7 +25,7 @@ module.exports = function (app) {
     
 
     app.get('/', (req, res) => {
-        routeP.allUsers
+        res.send(routeP.allUsers);
     });
     app.get('/api/v1/pembeli/:id_pembeli', routeP.findUser);
     app.post('/api/v1/pembeli', routeP.addUser);
