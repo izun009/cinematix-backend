@@ -12,7 +12,6 @@ exports.allKursi = function (req, res) {
         } else {
             res.json(result);
         }
-        res.end();
     });
 }
 
@@ -32,7 +31,6 @@ exports.addKursi = function (req, res) {
                 message : "Berhasil Input"
             });
         }
-        res.end();
     });
 }
 
@@ -49,7 +47,6 @@ exports.findKursi = function (req, res) {
         } else {
             res.json(result);
         }
-        res.end();
     });
 }
 
@@ -70,7 +67,6 @@ exports.updateKursi = function (req, res) {
                 message : result
             });
         }
-        res.end();
     });
 }
 

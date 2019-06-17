@@ -19,7 +19,6 @@ exports.register = function (req, res) {
                 message : "Berhasil Register"
             });
         }
-        res.end();
     });
 };
 
