@@ -1,13 +1,13 @@
-var mysql = require('mysql');
+const mysql = require('mysql');
 
-var db = {
+const db = {
     host: 'us-cdbr-iron-east-02.cleardb.net',
     user: 'b470cb6f14c593',
     password: '7ec199a9',
     database: 'heroku_041310c7bcb4df6'
 };
 
-var connection;
+const connection;
 
 function handleDisconnect() {
     connection = mysql.createConnection(db); 
@@ -26,7 +26,7 @@ function handleDisconnect() {
         throw err;                                  
       }
     });
-  }
+}
   
 handleDisconnect();
 connection.end();
