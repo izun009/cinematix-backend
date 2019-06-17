@@ -1,14 +1,14 @@
 var mysql = require('mysql');
-
-var connection;
-
-function handleDisconnect() {
-    connection = mysql.createConnection({
+var db = {
       host: 'us-cdbr-iron-east-02.cleardb.net',
       user: 'b470cb6f14c593',
       password: '7ec199a9',
       database: 'heroku_041310c7bcb4df6'
-    }); 
+}
+var connection;
+
+function handleDisconnect() {
+    connection = mysql.createConnection(db);
   
     connection.connect(function(err) {             
       if(err) {                                     
@@ -27,4 +27,5 @@ function handleDisconnect() {
 }
   
 handleDisconnect();
-module.exports = connection;
+
+module.exports = db;
