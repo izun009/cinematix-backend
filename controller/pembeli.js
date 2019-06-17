@@ -1,7 +1,7 @@
 // dashboard admin
 
-const connection = require('../config/db');
-const bcrypt = require('bcrypt');
+var connection = require('../config/db');
+var bcrypt = require('bcrypt');
 
 exports.allUsers = function (req,res) {
     connection.query('SELECT * FROM pembeli', (err, rows) => {
