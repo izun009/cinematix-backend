@@ -1,10 +1,10 @@
 // dashboard admin
 
-var con = require('../config/db');
-var bcrypt = require('bcrypt');
+const connection = require('../config/db');
+const bcrypt = require('bcrypt');
 
 exports.allUsers = function (req,res) {
-    con.query('SELECT * FROM pembeli', (err, rows) => {
+    connection.query('SELECT * FROM pembeli', (err, rows) => {
         if (err){
             res.json({
                 status : 400,
@@ -13,7 +13,6 @@ exports.allUsers = function (req,res) {
         } else {
             res.json(rows);
         }
-        res.end();
     });
 }
 
@@ -22,7 +21,7 @@ exports.addUser = function (req, res) {
     var password = bcrypt.hashSync(req.body.password, 10);
     var saldo = req.body.saldo;
 
-    con.query('INSERT INTO pembeli (email, password, saldo) values (?,?,?)',
+    connection.query('INSERT INTO pembeli (email, password, saldo) values (?,?,?)',
     [email, password, saldo], (err, rows) => {
         if (err){
             res.json({
@@ -35,14 +34,13 @@ exports.addUser = function (req, res) {
                 message : "Berhasil Input"
             });
         }
-        res.end();
     });
 }
 
 exports.findUser = function (req, res) {
     var id_pembeli = req.params.id_pembeli;
 
-    con.query('SELECT * FROM pembeli WHERE id_pembeli = ? ', [id_pembeli], 
+    connection.query('SELECT * FROM pembeli WHERE id_pembeli = ? ', [id_pembeli], 
     (err, rows) => {
         if (err){
             res.json({
@@ -52,7 +50,6 @@ exports.findUser = function (req, res) {
         } else {
             res.json(rows);
         }
-        res.end();
     });
 }
 
@@ -63,7 +60,7 @@ exports.updateUser = function (req, res) {
     var password = bcrypt.hashSync(req.body.password, 10);
     var saldo = req.body.saldo;
 
-    con.query('UPDATE pembeli SET email = ?, password = ?, saldo = ? WHERE id_pembeli = ?',
+    connection.query('UPDATE pembeli SET email = ?, password = ?, saldo = ? WHERE id_pembeli = ?',
     [email, password, saldo, id_pembeli], (err, rows) => {
         if (err){
             res.json({
@@ -76,14 +73,13 @@ exports.updateUser = function (req, res) {
                 message : rows
             });
         }
-        res.end();
     });
 }
 
 exports.deleteUser = function (req, res) {
     var id_pembeli = req.body.id_pembeli;
 
-    con.query('DELETE FROM pembeli WHERE id_pembeli = ?', 
+    connection.query('DELETE FROM pembeli WHERE id_pembeli = ?', 
     [id_pembeli], (err, rows) => {
         if (err){
             tres.json({
@@ -96,6 +92,5 @@ exports.deleteUser = function (req, res) {
                 message : "Berhasil di hapus"
             });
         }
-        res.end();
     });
 }
