@@ -2,9 +2,9 @@ var mysql = require('mysql');
 
 var db = {
     host: 'us-cdbr-iron-east-02.cleardb.net',
-    user: 'bdf77848110ae5',
-    password: 'd1b37fc6',
-    database: 'heroku_e619e3c52f5ac99'
+    user: 'b470cb6f14c593',
+    password: '7ec199a9',
+    database: 'heroku_041310c7bcb4df6'
 };
 
 var connection;
