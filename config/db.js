@@ -29,5 +29,6 @@ function handleDisconnect() {
   }
   
 handleDisconnect();
+connection.end();
 
 module.exports = db;
