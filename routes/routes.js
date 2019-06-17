@@ -15,9 +15,9 @@ module.exports = function (app) {
     var routeForm = require('../controller/formlogin');
     var routeAdm = require('../controller/admin');
 
-    // app.get('/', (req,res) => {
-    //     res.send('Try to /api/v1/pembeli');
-    // });
+    app.get('/', (req,res) => {
+        res.send('Try to /api/v1/pembeli');
+    });
 
     // app.post('/api/v1/register', routeForm.register);
     // app.post('/api/v1/login', routeForm.login);
