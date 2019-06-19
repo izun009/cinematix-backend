@@ -25,9 +25,9 @@ module.exports = function (app) {
 
     app.get('/api/v1/pembeli', routeP.allUsers);
     app.get('/api/v1/pembeli/:id_pembeli', routeP.findUser);
-    app.post('/api/v1/pembeli', routeP.addUser);
-    app.put('/api/v1/pembeli', routeP.updateUser);
-    app.delete('/api/v1/pembeli', routeP.deleteUser);
+    app.post('/api/v1/pembeli/add', routeP.addUser);
+    app.post('/api/v1/pembeli/edit', routeP.updateUser);
+    app.delete('/api/v1/pembeli/delete', routeP.deleteUser);
 
     app.post('/api/v1/register', routeAdm.register);
     app.post('/api/v1/login', routeAdm.login);

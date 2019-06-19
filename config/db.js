@@ -3,10 +3,10 @@ var connection;
 
 function handleDisconnect() {
     connection = mysql.createConnection({
-    host: 'us-cdbr-iron-east-02.cleardb.net',
-    user: 'b470cb6f14c593',
-    password: '7ec199a9',
-    database: 'heroku_041310c7bcb4df6'
+    host: 'localhost',
+    user: 'izzen',
+    password: '1234',
+    database: 'pemesanan_tiket_bioskop'
   });
   
     connection.connect(function(err) {             

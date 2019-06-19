@@ -5,14 +5,8 @@ const bcrypt = require('bcrypt');
 
 exports.allUsers = function (req,res) {
     connection.query('SELECT * FROM pembeli', (err, rows) => {
-        if (err){
-            res.json({
-                status : 400,
-                message : err
-            });
-        } else {
-            res.json(rows);
-        }
+        if (err) throw err;
+        res.send(JSON.stringify(rows));
     });
 }
 
@@ -62,17 +56,8 @@ exports.updateUser = function (req, res) {
 
     connection.query('UPDATE pembeli SET email = ?, password = ?, saldo = ? WHERE id_pembeli = ?',
     [email, password, saldo, id_pembeli], (err, rows) => {
-        if (err){
-            res.json({
-                status : 400,
-                message : err
-            });
-        } else {
-            res.json({
-                status : 200,
-                message : rows
-            });
-        }
+        if (err) throw err;
+        res.send(JSON.stringify(rows));
     });
 }
 
