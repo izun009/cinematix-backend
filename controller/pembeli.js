@@ -5,14 +5,21 @@ const bcrypt = require('bcrypt');
 
 exports.allUsers = function (req,res) {
     connection.query('SELECT * FROM pembeli', (err, rows) => {
-        if (err) throw err;
-        res.send(JSON.stringify(rows));
+        if (err){
+            res.json({
+                status : 400,
+                message : err
+            });
+        } else {
+            res.json(rows);
+        }
     });
 }
 
 exports.addUser = function (req, res) {
     var email = req.body.email;
-    var password = bcrypt.hashSync(req.body.password, 10);
+    var password = req.body.password;
+    // var password = bcrypt.hashSync(req.body.password, 10);
     var saldo = req.body.saldo;
 
     connection.query('INSERT INTO pembeli (email, password, saldo) values (?,?,?)',
@@ -51,13 +58,23 @@ exports.findUser = function (req, res) {
 exports.updateUser = function (req, res) {
     var id_pembeli = req.body.id_pembeli;
     var email = req.body.email;
-    var password = bcrypt.hashSync(req.body.password, 10);
+    var password = req.body.password;
+    // var password = bcrypt.hashSync(req.body.password, 10);
     var saldo = req.body.saldo;
 
     connection.query('UPDATE pembeli SET email = ?, password = ?, saldo = ? WHERE id_pembeli = ?',
     [email, password, saldo, id_pembeli], (err, rows) => {
-        if (err) throw err;
-        res.send(JSON.stringify(rows));
+        if (err){
+            res.json({
+                status : 400,
+                message : err
+            });
+        } else {
+            res.json({
+                status : 200,
+                message : "Berhasil Input"
+            });
+        }
     });
 }
 
@@ -67,11 +84,16 @@ exports.deleteUser = function (req, res) {
     connection.query('DELETE FROM pembeli WHERE id_pembeli = ?', 
     [id_pembeli], (err, rows) => {
         if (err){
-            tres.json({
+            console.log(id_pembeli);
+
+            res.json({
+                
                 status : 400,
                 message : err
             });
         } else {
+            console.log(id_pembeli);
+            
             res.json({
                 status : 200,
                 message : "Berhasil di hapus"
