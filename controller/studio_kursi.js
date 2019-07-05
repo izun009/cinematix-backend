@@ -3,7 +3,7 @@
 const connection = require('../config/db');
 
 module.exports.allStudioKursi = function (req, res) {
-    connection.query('SELECT studio_kursi.id_studio_kursi, studio.no_studio, kursi.no_kursi FROM studio_kursi'
+    connection.query('SELECT * FROM studio_kursi'
     + ' INNER JOIN studio ON studio_kursi.id_studio = studio.id_studio'
     + ' INNER JOIN kursi ON studio_kursi.id_kursi = kursi.id_kursi'
     + ' WHERE studio_kursi.id_studio = studio.id_studio AND studio_kursi.id_kursi = kursi.id_kursi',

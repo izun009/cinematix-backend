@@ -18,8 +18,8 @@ exports.allUsers = function (req,res) {
 
 exports.addUser = function (req, res) {
     var email = req.body.email;
-    // var password = req.body.password;
-    var password = bcrypt.hashSync(req.body.password, 10);
+    var password = req.body.password;
+    // var password = bcrypt.hashSync(req.body.password, 10);
     var saldo = req.body.saldo;
 
     connection.query('INSERT INTO pembeli (email, password, saldo) values (?,?,?)',
@@ -58,8 +58,8 @@ exports.findUser = function (req, res) {
 exports.updateUser = function (req, res) {
     var id_pembeli = req.body.id_pembeli;
     var email = req.body.email;
-    // var password = req.body.password;
-    var password = bcrypt.hashSync(req.body.password, 10);
+    var password = req.body.password;
+    // var password = bcrypt.hashSync(req.body.password, 10);
     var saldo = req.body.saldo;
 
     connection.query('UPDATE pembeli SET email = ?, password = ?, saldo = ? WHERE id_pembeli = ?',

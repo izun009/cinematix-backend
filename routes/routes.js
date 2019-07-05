@@ -63,23 +63,23 @@ module.exports = function (app) {
     app.put('/api/v1/film', routeF.updateFilm);
     app.delete('/api/v1/film', routeF.deleteFilm);
 
-    app.get('/api/v1/jadwal_film', routeJF.allJadwalFilm);
-    app.get('/api/v1/jadwal_film/:id_jadwal_film', routeJF.findJadwalFilm);
-    app.post('/api/v1/jadwal_film', routeJF.addJadwalFilm);
-    app.put('/api/v1/jadwal_film', routeJF.updateJadwalFilm);
-    app.delete('/api/v1/jadwal_film', routeJF.deleteJadwalFilm);
+    app.get('/api/v1/jadwal-film', routeJF.allJadwalFilm);
+    app.get('/api/v1/jadwal-film/:id_jadwal_film', routeJF.findJadwalFilm);
+    app.post('/api/v1/jadwal-film', routeJF.addJadwalFilm);
+    app.put('/api/v1/jadwal-film', routeJF.updateJadwalFilm);
+    app.delete('/api/v1/jadwal-film', routeJF.deleteJadwalFilm);
 
-    app.get('/api/v1/studio_kursi', routeSK.allStudioKursi);
-    app.get('/api/v1/studio_kursi/:id_studio_kursi', routeSK.findStudioKursi);
-    app.post('/api/v1/studio_kursi', routeSK.addStudioKursi);
-    app.put('/api/v1/studio_kursi', routeSK.updateStudioKursi);
-    app.delete('/api/v1/studio_kursi', routeSK.deleteStudioKursi);
+    app.get('/api/v1/studio-kursi', routeSK.allStudioKursi);
+    app.get('/api/v1/studio-kursi/:id-studio-kursi', routeSK.findStudioKursi);
+    app.post('/api/v1/studio-kursi', routeSK.addStudioKursi);
+    app.put('/api/v1/studio-kursi', routeSK.updateStudioKursi);
+    app.delete('/api/v1/studio-kursi', routeSK.deleteStudioKursi);
 
-    app.get('/api/v1/pemesanan_jadwal_film', routePs.allPemesanan);
-    app.get('/api/v1/pemesanan_jadwal_film/:id_pemesanan_jadwal_film', routePs.findPemesanan);
-    app.post('/api/v1/pemesanan_jadwal_film', routePs.addPemesanan);
-    app.put('/api/v1/pemesanan_jadwal_film', routePs.updatePemesanan);
-    app.delete('/api/v1/pemesanan_jadwal_film', routePs.deletePemesanan);
+    app.get('/api/v1/pemesanan', routePs.allPemesanan);
+    app.get('/api/v1/pemesanan/:id_pemesanan_jadwal_film', routePs.findPemesanan);
+    app.post('/api/v1/pemesanan', routePs.addPemesanan);
+    app.put('/api/v1/pemesanan', routePs.updatePemesanan);
+    app.delete('/api/v1/pemesanan', routePs.deletePemesanan);
 
     app.get('/api/v1/tiket', routeT.allTiket);
     app.get('/api/v1/tiket/:id_tiket', routeT.findTiket);

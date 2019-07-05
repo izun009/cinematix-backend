@@ -1,7 +1,7 @@
 const connection = require('../config/db');
 
 module.exports.allFilm = function (req, res) {
-    connection.query('SELECT film.judul, film.sinopsis, film.jam_mulai, film.durasi,'
+    connection.query('SELECT film.id_film, film.judul, film.sinopsis, film.jam_mulai, film.durasi,'
     + ' kategori.nama_kategori FROM film INNER JOIN kategori ON film.id_kategori = kategori.id_kategori'
     + ' WHERE film.id_kategori = kategori.id_kategori',
     (err,result) => {

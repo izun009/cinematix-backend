@@ -3,7 +3,7 @@
 const connection = require('../config/db');
 
 module.exports.allJadwalFilm = function (req, res) {
-    connection.query('SELECT jadwal_film.id_jadwal_film, jadwal.tanggal, film.judul FROM jadwal_film'
+    connection.query('SELECT * FROM jadwal_film'
     + ' INNER JOIN jadwal ON jadwal_film.id_jadwal = jadwal.id_jadwal'
     + ' INNER JOIN film ON jadwal_film.id_film = film.id_film'
     + ' WHERE jadwal_film.id_jadwal = jadwal.id_jadwal AND jadwal_film.id_film = film.id_film',

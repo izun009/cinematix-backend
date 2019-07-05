@@ -3,7 +3,8 @@
 const connection = require('../config/db');
 
 module.exports.allTiket = function (req, res) {
-    connection.query('SELECT * FROM tiket', (err, result) => {
+    connection.query('SELECT * FROM tiket'
+        , (err, result) => {
         if(err){
             res.json({
                 status : 400,
