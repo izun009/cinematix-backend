@@ -1,4 +1,17 @@
 const router = require('../controller/formlogin');
+const multer = require('multer');
+var storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'public')
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + '-' + file.originalname)
+    }
+});
+
+const upload = multer({
+    storage
+});
 
 module.exports = function (app) {
     var routeP = require('../controller/pembeli');
@@ -21,8 +34,7 @@ module.exports = function (app) {
 
     // app.post('/api/v1/register', routeForm.register);
     // app.post('/api/v1/login', routeForm.login);
-
-
+    
     app.get('/api/v1/pembeli', routeP.allUsers);
     app.get('/api/v1/pembeli/:id_pembeli', routeP.findUser);
     app.post('/api/v1/pembeli/add', routeP.addUser);
@@ -59,7 +71,7 @@ module.exports = function (app) {
 
     app.get('/api/v1/film', routeF.allFilm);
     app.get('/api/v1/film/:id_film', routeF.findFilm);
-    app.post('/api/v1/film', routeF.addFilm);
+    app.post('/api/v1/film', upload.single('uploaded_image'), routeF.addFilm);
     app.put('/api/v1/film', routeF.updateFilm);
     app.delete('/api/v1/film', routeF.deleteFilm);
 

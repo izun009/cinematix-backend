@@ -3,6 +3,9 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require('path');
+app.use(express.static(path.join(__dirname, './public')));
+
 // var corsMiddleware = function(req, res, next) {
 //     res.header('Access-Control-Allow-Origin', 'localhost'); //replace localhost with actual host
 //     res.header('Access-Control-Allow-Methods', 'OPTIONS, GET, PUT, PATCH, POST, DELETE');
@@ -25,7 +28,6 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 var routes = require('./routes/routes');
 routes(app);
-
 app.listen(PORT, () => {
     console.log('Server Running on Port ', PORT);
 });
